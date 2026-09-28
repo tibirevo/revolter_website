@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Shows - Revolter</title>
+    <meta name="description" content="Upcoming tour dates and shows for Revolter.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="shows-page">
+    <!-- Sticky Navigation -->
+    <header class="header">
+        <nav class="nav-left">
+            <a href="index.html#home">HOME</a>
+            <a href="index.html#music">MUSIC</a>
+            <a href="index.html#videos">VIDEOS</a>
+            <a href="index.html#live">LIVE</a>
+            <a href="shows.html">SHOWS</a>
+        </nav>
+        <div class="nav-center">
+            <a href="index.html#home" class="brand-logo"><img src="assets/band_logo.png" alt="Revolter Logo"></a>
+        </div>
+        <div class="nav-right">
+            <a href="https://www.instagram.com/rrevolter/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/revoltersibiu/?locale=ro_RO" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCVSF0tQAVsq_p5tPZubl-nw" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/6hc8sgZk3vpuGSuUE2IooT" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content shows-container">
+        <h1 class="section-title fade-in-up" style="margin-bottom: 60px;">UPCOMING SHOWS</h1>
+        
+        <div class="table-wrapper fade-in-up" style="animation-delay: 0.2s;">
+            <table class="shows-table">
+                <thead>
+                    <tr>
+                        <th>DATĂ</th>
+                        <th>LOCAȚIE</th>
+                        <th>EVENIMENT</th>
+                        <th>BILETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Empty state -->
+                    <tr>
+                        <td colspan="4" class="empty-state">MOMENTAN NU SUNT CONCERTE PROGRAMATE. REVENIM ÎN CURÂND!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 REVOLTER. ALL RIGHTS RESERVED. | <a href="terms.html">TERMENI ȘI CONDIȚII</a></p>
+    </footer>
+
+    <script>
+        // Trigger fade-in animations on load for the shows page
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in-up, .fade-in');
+            elements.forEach(el => el.classList.add('visible'));
+        });
+    </script>
+</body>
+</html>
