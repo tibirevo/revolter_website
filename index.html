@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload Hero Background Image for instant display -->
+    <link rel="preload" as="image" href="assets/band_photo.webp" type="image/webp" fetchpriority="high">
 </head>
 <body id="home">
     <!-- Sticky Navigation -->
@@ -37,7 +39,11 @@
     <!-- Main Content -->
     <main class="main-content">
         <section class="hero">
-            <img src="assets/band_photo.jpg" alt="Revolter Background" class="hero-bg-image fade-in">
+            <picture class="hero-bg-picture">
+                <source type="image/webp" srcset="assets/band_photo-1280.webp 1280w, assets/band_photo-1920.webp 1920w, assets/band_photo.webp 2560w" sizes="100vw">
+                <source type="image/jpeg" srcset="assets/band_photo-1920.jpg 1920w, assets/band_photo.jpg 2560w" sizes="100vw">
+                <img src="assets/band_photo.jpg" alt="Revolter Background" class="hero-bg-image fade-in" fetchpriority="high" loading="eager" decoding="async">
+            </picture>
             <div class="hero-overlay"></div>
             
             <div class="hero-image-wrapper" style="margin-bottom: 0; z-index: 1; position: relative;">
@@ -69,7 +75,10 @@
         <section id="band" class="band-members-section">
             <div class="member-row fade-in-up">
                 <div class="member-photo">
-                    <img src="assets/poza dragos epk2.jpeg" alt="Dragoș">
+                    <picture>
+                        <source srcset="assets/poza dragos epk2.webp" type="image/webp">
+                        <img src="assets/poza dragos epk2.jpeg" alt="Dragoș" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <div class="member-info">
                     <h3>DRAGOȘ</h3>
@@ -79,7 +88,10 @@
 
             <div class="member-row fade-in-up">
                 <div class="member-photo">
-                    <img src="assets/poza haris epk.jpeg" alt="Haris">
+                    <picture>
+                        <source srcset="assets/poza haris epk.webp" type="image/webp">
+                        <img src="assets/poza haris epk.jpeg" alt="Haris" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <div class="member-info">
                     <h3>HARIS</h3>
@@ -89,7 +101,10 @@
 
             <div class="member-row fade-in-up">
                 <div class="member-photo">
-                    <img src="assets/poza mark epk.jpeg" alt="Mark">
+                    <picture>
+                        <source srcset="assets/poza mark epk.webp" type="image/webp">
+                        <img src="assets/poza mark epk.jpeg" alt="Mark" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <div class="member-info">
                     <h3>MARK</h3>
@@ -99,7 +114,10 @@
 
             <div class="member-row fade-in-up">
                 <div class="member-photo">
-                    <img src="assets/poza stef epk.jpeg" alt="Ștef">
+                    <picture>
+                        <source srcset="assets/poza stef epk.webp" type="image/webp">
+                        <img src="assets/poza stef epk.jpeg" alt="Ștef" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <div class="member-info">
                     <h3>ȘTEF</h3>
@@ -109,7 +127,10 @@
 
             <div class="member-row fade-in-up">
                 <div class="member-photo">
-                    <img src="assets/poza tibi epk.jpg" alt="Tibi">
+                    <picture>
+                        <source srcset="assets/poza tibi epk.webp" type="image/webp">
+                        <img src="assets/poza tibi epk.jpg" alt="Tibi" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <div class="member-info">
                     <h3>TIBI</h3>

@@ -99,13 +99,14 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - var(--header-height));
     margin-top: -60px; /* Offset the main-content padding-top to stick to header */
     margin-bottom: 100px;
     overflow: hidden;
 }
 
+.hero-bg-picture,
 .hero-bg-image {
     position: absolute;
     top: 0;
@@ -114,6 +115,13 @@ a:hover {
     height: 100%;
     object-fit: cover;
     z-index: -2;
+}
+
+.hero-bg-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-overlay {
@@ -251,6 +259,11 @@ a:hover {
     max-width: 50%;
 }
 
+.member-photo picture {
+    display: block;
+    width: 100%;
+}
+
 .member-photo img {
     width: 100%;
     height: auto;
@@ -315,7 +328,95 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    /* Layout adjustments */
+    /* Header layout: 2-row grid preventing any overlap between SHOWS and social icons */
+    .header {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas:
+            "spacer logo socials"
+            "menu menu menu";
+        align-items: center;
+        height: auto;
+        padding: 10px 16px 12px;
+        row-gap: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav-center {
+        grid-area: logo;
+        position: static;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .nav-center .brand-logo img {
+        height: 42px;
+    }
+
+    .nav-right {
+        grid-area: socials;
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 14px;
+        font-size: 15px;
+    }
+
+    .nav-right a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+    }
+
+    .nav-left {
+        grid-area: menu;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+        width: 100%;
+        margin-top: 0;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-left a {
+        padding: 4px 6px;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    /* Main Content & Hero adjustments */
+    .main-content {
+        padding-top: 0;
+        padding-bottom: 60px;
+    }
+
+    .hero {
+        min-height: calc(100svh - 85px);
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 50px;
+        padding: 40px 20px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 300px;
+        padding: 10px;
+    }
+
+    /* Section adjustments */
     .music-section,
     .videos-section,
     .band-members-section {
@@ -333,8 +434,9 @@ a:hover {
     }
     
     .member-photo {
-        max-width: 100%;
+        max-width: 320px;
         width: 100%;
+        margin: 0 auto;
     }
     
     .member-info {
@@ -349,39 +451,6 @@ a:hover {
 
     .member-desc, .member-desc-placeholder {
         font-size: 13px;
-    }
-
-    /* Header adjustments */
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 15px;
-        gap: 15px;
-    }
-    
-    .nav-left {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 5px;
-    }
-
-    .nav-right {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        gap: 10px;
-        font-size: 14px;
-    }
-
-    .nav-center {
-        position: relative;
-        left: 0;
-        transform: none;
-    }
-    
-    .nav-center .brand-logo img {
-        height: 40px;
     }
 
     /* Typography adjustments */
@@ -404,9 +473,26 @@ a:hover {
         font-size: 10px;
     }
 
+    /* Contact Section adjustments */
+    .contact-section {
+        padding: 0 20px;
+        margin: 40px 0 20px 0;
+    }
+
+    .contact-container {
+        gap: 20px;
+    }
+
+    .contact-box {
+        min-width: 0;
+        width: 100%;
+        padding: 30px 20px;
+    }
+
     /* Shows Page adjustments */
     .shows-container {
-        padding-top: 60px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .shows-table th, .shows-table td {
@@ -416,7 +502,7 @@ a:hover {
 
     /* Legal Page adjustments */
     .text-container {
-        padding: 60px 20px;
+        padding: 40px 20px;
     }
 
     .legal-text h3 {
@@ -430,30 +516,63 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    /* Extra small devices */
-    .nav-left {
-        gap: 10px;
-        font-size: 8px;
+    /* Extra small devices / phone screens */
+    .header {
+        padding: 8px 12px 10px;
+        row-gap: 8px;
     }
 
     .nav-center .brand-logo img {
-        height: 35px;
+        height: 36px;
     }
 
     .nav-right {
-        gap: 8px;
-        font-size: 12px;
-        top: 15px;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .nav-left {
+        gap: 4px 10px;
+        font-size: 8px;
+        letter-spacing: 0.8px;
+        padding-top: 6px;
+    }
+
+    .nav-left a {
+        padding: 3px 4px;
     }
 
     .section-title {
-        font-size: 18px;
+        font-size: 17px;
         letter-spacing: 5px;
         text-indent: 5px;
+        margin-bottom: 24px;
+    }
+
+    .album-title {
+        font-size: 14px;
+        letter-spacing: 4px;
+        text-indent: 4px;
+        margin-bottom: 20px;
     }
 
     .hero-image-wrapper {
-        padding: 40px;
+        max-width: 260px;
+        padding: 0;
+    }
+
+    .contact-box {
+        padding: 24px 16px;
+    }
+
+    .contact-box h3 {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .contact-box p {
+        font-size: 13px;
+        margin-bottom: 20px;
     }
 }
 
@@ -469,6 +588,7 @@ a:hover {
 .table-wrapper {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 0 20px;
 }
 
