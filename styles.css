@@ -496,7 +496,12 @@ a:hover {
     }
 
     .shows-table th, .shows-table td {
-        padding: 12px 8px;
+        padding: 14px 10px;
+        font-size: 10px;
+    }
+
+    .btn-ticket {
+        padding: 8px 16px;
         font-size: 9px;
     }
 
